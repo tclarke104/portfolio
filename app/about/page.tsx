@@ -13,7 +13,7 @@ export default function About() {
         <h1 className="text-4xl font-bold text-center mb-8">About Me</h1>
         <div className="flex flex-col md:flex-row items-center md:items-start">
           <div className="w-full md:w-1/3 mb-8 md:mb-0">
-            <img
+            <Image
               src="/headshot.jpeg"  // Replace with your image path
               alt="Your Name"
               width={300}

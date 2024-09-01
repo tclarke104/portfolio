@@ -14,7 +14,7 @@ export default function CoursePage() {
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-4">Virtual Surgical Planning with Open-Source Software</h1>
           <p className="text-lg text-gray-700">
-            Welcome to the Virtual Surgical Planning course! In this course, you'll learn how to use open-source software tools such as 3D Slicer, Meshmixer, and others to perform virtual surgical planning for craniomaxillofacial surgery. This course is designed for surgeons, residents, and medical professionals interested in integrating digital planning into their practice.
+            Welcome to the Virtual Surgical Planning course! In this course, you will learn how to use open-source software tools such as 3D Slicer, Meshmixer, and others to perform virtual surgical planning for craniomaxillofacial surgery. This course is designed for surgeons, residents, and medical professionals interested in integrating digital planning into their practice.
           </p>
         </div>
 
@@ -23,7 +23,7 @@ export default function CoursePage() {
           <h2 className="text-2xl font-bold mb-4">Background Resources</h2>
           <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
             {VSP_LINKS.map(l => (
-                <li><a href={l.url} className="text-blue-500 hover:underline">{l.description}</a></li>
+                <li key={l.url}><a href={l.url} className="text-blue-500 hover:underline">{l.description}</a></li>
             ))}
           </ul>
         </div>
@@ -49,7 +49,7 @@ export default function CoursePage() {
           <h2 className="text-2xl font-bold mb-4">Required Software</h2>
           <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
             {SOFTWARE_LINKS.map(l => (
-                <li><a href={l.url} className="text-blue-500 hover:underline">{l.description}</a></li>
+                <li key={l.url}><a href={l.url} className="text-blue-500 hover:underline" >{l.description}</a></li>
             ))}
           </ul>
         </div>
