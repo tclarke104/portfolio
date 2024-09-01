@@ -7,12 +7,27 @@ export default function Navbar() {
   const [isOpaque, setIsOpaque] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 1) {
+        setIsOpaque(true);
+      } else {
+        setIsOpaque(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/cv', label: 'CV' },
     { href: '/course', label: 'VSP Course' },
     { href: '/about', label: 'About' },
-    // { href: '/portfolio', label: 'Portfolio' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -25,7 +40,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className={`fixed w-full z-10 transition-colors duration-300 ${isOpaque ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+    <nav className={`fixed w-full z-30 transition-colors duration-300 ${isOpaque ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-xl font-bold text-gray-800">
