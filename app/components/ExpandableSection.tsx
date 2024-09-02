@@ -31,6 +31,7 @@ export default function ExpandableSection({
   return (
     <div className="mb-12">
       <h2
+        id={sectionKey}
         className="text-2xl font-bold mb-4 cursor-pointer flex items-center justify-between"
         onClick={() => toggleSection(sectionKey)}
       >

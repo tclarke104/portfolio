@@ -37,3 +37,28 @@ a:hover {
   height: auto;
   opacity: 1;
 }
+
+/* Global CSS or within a Tailwind setup */
+.prose h1 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #1a202c; /* Darker shade for headings */
+}
+
+.prose p {
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+
+.prose a {
+  color: #3182ce;
+  text-decoration: underline;
+  &:hover {
+    color: #2b6cb0;
+  }
+}

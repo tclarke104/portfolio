@@ -36,7 +36,6 @@ export default function CoursePage() {
                 ))}
               </ul>
             </>
-
           }
           sectionKey="courseObjectives"
           expandedSection={expandedSection}
@@ -115,7 +114,16 @@ export default function CoursePage() {
           toggleSection={toggleSection}
         />
 
-
+        {/* Pre-Course Survey */}
+        <div className="text-center mb-6">
+          <a
+            href="/course/prework"
+            className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition"
+            aria-label="View Pre-Course Materials"
+          >
+            View Pre-Course Materials
+          </a>
+        </div>
 
         {/* Pre-Course Survey */}
         <div className="text-center mb-12">
