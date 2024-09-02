@@ -1,16 +1,23 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import { SOFTWARE_LINKS, VSP_LINKS } from '../data/vspLinks';
-
-export interface RelevantLinks {
-    url: string;
-    description: string;
-}
+import CourseAgenda from '../components/CourseAgenda';
+import { CourseInstructors } from '../components/CourseInstructors';
+import { AGENDA_ITEMS } from '../data/agendaItem';
+import { COURSE_INSTRUCTORS } from '../data/instructor';
+import ExpandableSection from '../components/ExpandableSection';
+import { COURSE_OBJECTIVES } from '../data/courseObjectives';
 
 export default function CoursePage() {
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
+  const toggleSection = (sectionKey: string) => {
+    setExpandedSection(prev => (prev === sectionKey ? null : sectionKey));
+  };
+
   return (
     <section className="min-h-screen py-12 pt-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        {/* Course Overview */}
         <div className="mb-12">
           <h1 className="text-4xl font-bold mb-4">Virtual Surgical Planning with Open-Source Software</h1>
           <p className="text-lg text-gray-700">
@@ -18,50 +25,107 @@ export default function CoursePage() {
           </p>
         </div>
 
-        {/* Background Resources */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Background Resources</h2>
-          <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
-            {VSP_LINKS.map(l => (
-                <li key={l.url}><a href={l.url} className="text-blue-500 hover:underline">{l.description}</a></li>
-            ))}
-          </ul>
-        </div>
+        <ExpandableSection
+          title="Course Objectives"
+          content={
+            <>
+              <h4 className='pb-4'>At the completion of the course attendees will be able to: </h4>
+              <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
+                {COURSE_OBJECTIVES.map((objective, index) => (
+                  <li key={index}>{objective}</li>
+                ))}
+              </ul>
+            </>
 
-        {/* YouTube Video */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Course Introduction Video</h2>
-          <div className="aspect-w-16 aspect-h-9">
-            COMING SOON!
-            {/* <iframe
-              src="https://www.youtube.com/embed/[YouTube Video ID]"
-              title="Course Introduction"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe> */}
-          </div>
-        </div>
+          }
+          sectionKey="courseObjectives"
+          expandedSection={expandedSection}
+          toggleSection={toggleSection}
+        />
 
-        {/* Required Software */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Required Software</h2>
-          <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
-            {SOFTWARE_LINKS.map(l => (
-                <li key={l.url}><a href={l.url} className="text-blue-500 hover:underline" >{l.description}</a></li>
-            ))}
-          </ul>
-        </div>
+        <ExpandableSection
+          title="Required Software"
+          content={
+            <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
+              {SOFTWARE_LINKS.map(l => (
+                <li key={l.url}>
+                  <a href={l.url} className="text-blue-500 hover:underline">
+                    {l.description}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          }
+          sectionKey="requiredSoftware"
+          expandedSection={expandedSection}
+          toggleSection={toggleSection}
+        />
+
+        <ExpandableSection
+          title="Course Agenda"
+          content={<CourseAgenda agendaItems={AGENDA_ITEMS} />}
+          sectionKey="agenda"
+          expandedSection={expandedSection}
+          toggleSection={toggleSection}
+        />
+
+        <ExpandableSection
+          title="Meet the Instructors"
+          content={<CourseInstructors instructors={COURSE_INSTRUCTORS} />}
+          sectionKey="instructors"
+          expandedSection={expandedSection}
+          toggleSection={toggleSection}
+        />
+
+        <ExpandableSection
+          title="Background Resources"
+          content={
+            <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
+              {VSP_LINKS.map(l => (
+                <li key={l.url}>
+                  <a href={l.url} className="text-blue-500 hover:underline">
+                    {l.description}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          }
+          sectionKey="backgroundResources"
+          expandedSection={expandedSection}
+          toggleSection={toggleSection}
+        />
+
+        <ExpandableSection
+          title="Course Introduction Video"
+          content={
+            <div className="aspect-w-16 aspect-h-9">
+              COMING SOON!
+              {/* <iframe
+                src="https://www.youtube.com/embed/[YouTube Video ID]"
+                title="Course Introduction"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe> */}
+            </div>
+          }
+          sectionKey="courseVideo"
+          expandedSection={expandedSection}
+          toggleSection={toggleSection}
+        />
+
+
 
         {/* Pre-Course Survey */}
-        <div className="text-center">
-        <a
+        <div className="text-center mb-12">
+          <a
             href="/course/survey"
             className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition"
-            >
+            aria-label="Take the Pre-Course Survey"
+          >
             Take the Pre-Course Survey
-            </a>
+          </a>
         </div>
       </div>
     </section>
