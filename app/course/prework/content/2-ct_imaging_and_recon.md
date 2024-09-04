@@ -1,6 +1,6 @@
 ---
 title: "Understanding CT Imaging and 3D Reconstruction"
-videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?si=lZFMRSN_pYN392zy"
+videoUrl: "https://www.youtube.com/embed/TimOBLePXUk?si=EuiJV5XDZnWHzxh5"
 ---
 
 Computed Tomography (CT) imaging is a cornerstone in modern medical diagnostics and surgical planning, providing detailed cross-sectional images of the body. In the context of Virtual Surgical Planning (VSP), CT imaging plays a crucial role as it forms the basis for creating accurate 3D reconstructions of anatomical structures. These reconstructions are essential for surgeons, particularly in fields like otolaryngology, where precision is paramount.
