@@ -1,5 +1,6 @@
 ---
 title: "Creating Cutting Guides"
+videoUrls: ["https://www.youtube.com/embed/E-krPB4Zsmg?si=cfssMNFJGxoy-Mly"]
 ---
 
 Cutting guides are an essential component of Virtual Surgical Planning (VSP), as they ensure that the surgical plan is executed with precision during the actual procedure. These guides are custom-designed templates that fit onto the patient’s anatomy and direct the surgeon’s instruments to the exact locations defined in the surgical plan. This section will walk you through the process of creating cutting guides, focusing on the tools and techniques required to produce accurate and effective guides.

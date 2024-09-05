@@ -1,7 +1,7 @@
 ---
 title: "Getting Started on Creating a Virtual Surgical Plan"
+videoUrls: ["https://www.youtube.com/embed/7G3rX4P9LeA?si=RDmhL_YDd8HGuRRr"]
 ---
-
 Creating a Virtual Surgical Plan (VSP) is a multi-step process that integrates various digital tools to design a precise and customized surgical approach for each patient. This section provides a practical guide to getting started with VSP, covering the essential steps and tools needed to develop a successful plan.
 
 The first step in creating a VSP is acquiring high-quality imaging data, typically through a CT scan. This imaging data serves as the foundation for the entire planning process. Once you have the CT scan, the next step is to import the data into a software platform capable of handling complex 3D reconstructions, such as 3D Slicer. 3D Slicer is a powerful, free tool widely used in medical imaging and surgical planning. It allows you to convert 2D CT images into detailed 3D models, which can then be manipulated to suit the specific requirements of the surgery.

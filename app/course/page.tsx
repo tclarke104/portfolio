@@ -94,26 +94,6 @@ export default function CoursePage() {
           toggleSection={toggleSection}
         />
 
-        <ExpandableSection
-          title="Course Introduction Video"
-          content={
-            <div className="aspect-w-16 aspect-h-9">
-              COMING SOON!
-              {/* <iframe
-                src="https://www.youtube.com/embed/[YouTube Video ID]"
-                title="Course Introduction"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe> */}
-            </div>
-          }
-          sectionKey="courseVideo"
-          expandedSection={expandedSection}
-          toggleSection={toggleSection}
-        />
-
         {/* Pre-Course Survey */}
         <div className="text-center mb-6">
           <a

@@ -7,7 +7,7 @@ import html from 'remark-html';
 export interface Section {
   title: string;
   contentHtml: string;
-  videoUrl?: string; // Optional field for YouTube video URL
+  videoUrls?: string[]; // Optional field for YouTube video URL
 }
 
 

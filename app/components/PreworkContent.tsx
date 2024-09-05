@@ -3,12 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import ExpandableSection from '../components/ExpandableSection';
-
-interface Section {
-  title: string;
-  contentHtml: string;
-  videoUrl?: string;
-}
+import { Section } from '../utils/markdown';
 
 interface PreworkContentProps {
   sections: Section[];
@@ -37,7 +32,7 @@ const PreworkContent: React.FC<PreworkContentProps> = ({ sections }) => {
         setTimeout(() => {
           const element = document.getElementById(newSection)
           if (element) {
-            const yOffset = -10; 
+            const yOffset = -80; // Adjust this value to account for any fixed headers
             const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
             window.scrollTo({top: y, behavior: 'smooth'});
           }
@@ -79,9 +74,11 @@ const PreworkContent: React.FC<PreworkContentProps> = ({ sections }) => {
                   className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById(`section-${index + 1}`)?.scrollIntoView({
+                    const targetSection = `section-${index + 1}`;
+                    document.getElementById(targetSection)?.scrollIntoView({
                       behavior: 'smooth',
                     });
+                    toggleSection(targetSection);
                   }}
                 >
                   {section.title}
@@ -99,18 +96,22 @@ const PreworkContent: React.FC<PreworkContentProps> = ({ sections }) => {
               content={
                 <div className="prose prose-lg max-w-none text-gray-700 mt-4">
                   <div dangerouslySetInnerHTML={{ __html: section.contentHtml }} />
-                  {section.videoUrl && (
+                  {section.videoUrls && section.videoUrls.length > 0 && (
                     <div className="mt-6">
-                      <iframe
-                        width="100%"
-                        height="315"
-                        src={section.videoUrl}
-                        title="YouTube video player"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="rounded-lg shadow-lg"
-                      ></iframe>
+                      {section.videoUrls.map((videoUrl, index) => (
+                        <div key={index} className="mb-4">
+                          <iframe
+                            width="100%"
+                            height="315"
+                            src={videoUrl}
+                            title={`YouTube video player ${index + 1}`}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="rounded-lg shadow-lg"
+                          ></iframe>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>

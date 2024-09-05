@@ -1,5 +1,6 @@
 ---
 title: "Preparing for Print and Printing with PreForm"
+videoUrls: ["https://www.youtube.com/embed/roEJc1LKgo0?si=Spug64TidjAwLHas"]
 ---
 
 After designing your cutting guides and other surgical models, the next critical step in the Virtual Surgical Planning (VSP) process is preparing these models for 3D printing. This involves optimizing the design files for printing and using a slicer software, such as PreForm, to ensure the models are printed accurately and effectively. In this section, we will guide you through the process of preparing your models for print and the key considerations when using PreForm to produce high-quality surgical guides.

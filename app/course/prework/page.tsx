@@ -4,9 +4,10 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import PreworkContent from '@/app/components/PreworkContent'; // Import the client component
+import { Section } from '@/app/utils/markdown';
 
 // Function to fetch markdown data on the server
-async function getMarkdownData(filename: string) {
+async function getMarkdownData(filename: string): Promise<Section> {
     const contentDirectory = path.join(process.cwd(), 'app/course/prework/content');
     const filePath = path.join(contentDirectory, `${filename}.md`);
     const fileContents = await fs.readFile(filePath, 'utf8');
@@ -20,7 +21,7 @@ async function getMarkdownData(filename: string) {
     return {
       title: matterResult.data.title || 'Untitled Section',
       contentHtml,
-      videoUrl: matterResult.data.videoUrl || null, // Video URL from front matter
+      videoUrls: matterResult.data.videoUrls || [], // Array of video URLs from front matter
     };
   }
   
